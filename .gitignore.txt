@@ -1,0 +1,3 @@
+ExtLibs/
+*.o
+*.out
