@@ -1,10 +1,54 @@
 #include <iostream>
 #include <wiringPi.h>
+#include "DMS.h"
 using namespace std;
 //soweit ich das richtig interpretiere gibt es auser libgpiod nichts wirkliches, und das ist auch seit 3 Jahren tod
 double Value_PIN8;
 double Value_PIN10;
+const int GAIN_128 = 25;
+const int GAIN_64 = 27;
+const int doutPin = ;
+const int sckPin = ;
 
+void setup(){
+    Serial.begin(57600);
+    pinMode(doutPin, INPUT);
+    pinMode(sckPin, Output)
+}
+
+void loop(){
+    unsigned long raw = readHX711();
+    Serial.println(raw);
+    delay(600)
+}
+
+unsigned long readHX711(){
+    unsigned long data = 0;
+    uint8_t dout;
+      while(digitalRead(doutPin)){}  // wait until value is available
+  for (uint8_t i=0; i<GAIN_128; i++){   //highest Gain
+    //delayMicroseconds(1); // uncomment for fast MCUs
+    digitalWrite(sckPin, 1);
+    //delayMicroseconds(1); // uncomment for fast MCUs
+    digitalWrite(sckPin, 0);
+    if (i < (24)){
+      dout = digitalRead(doutPin);
+      data = (data << 1) | dout;
+    }
+  }
+  data = data ^ 0x800000; // flip bit 23
+  
+  return data; 
+}
+
+void powerDown(){
+  digitalWrite(sckPin, LOW);
+  digitalWrite(sckPin, HIGH);
+}
+
+void powerUp(){
+  digitalWrite(sckPin, LOW);
+}
 
 vector<string> WriteDataToFile(string Filename, double U1/*=Pin8*/, double U2/*=Pin10*/){
     
