@@ -5,7 +5,8 @@ using namespace std;
 double Ausschlagsspannung;
 double Empfindlichkeit;
 double U0 = 5.00; //Volt, input vom raspi
-
+// double Empfindlichkeit_Datenblatt=2.0;
+// double Dehnlimit_Datenblatt = 0.02;
 
 double Ausschlag(double R1, int R_DMS, double R3, double R4){
     Ausschlagsspannung = U0*((R3 / (R3+R4))-(R1 / (R1+R_DMS)));
@@ -21,7 +22,7 @@ int main(){
     double Wert = Empfindlichkeit_Funktion(350,350);
     for (int i = 340; i<360; i++){
         double Value = Ausschlag(350,i,350,350);
-        cout << Value;
+        cout << Value << endl;
     }
     return 0;
 }
