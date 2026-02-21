@@ -10,7 +10,7 @@ int main(void)
     pinMode(17, INPUT);
     pullUpDnControl(17, PUD_DOWN);
     vector<int> Ergebnisse = {0, 0};
-    while(true){
+   // while(true){
         
     int value = digitalRead(17);
 
@@ -19,5 +19,5 @@ int main(void)
         Ergebnisse.push_back(value);
     }
     delay(1000);
-    }
+    //}
 }
