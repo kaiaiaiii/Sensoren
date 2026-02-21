@@ -14,7 +14,7 @@ int main(void)
         
     int value = digitalRead(17);
 
-    if (value == HIGH || value == LOW){
+    if (value == HIGH){
         cout << "Test";
         Ergebnisse.push_back(value);
     }
