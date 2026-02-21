@@ -11,5 +11,7 @@ int main(void)
 
   int value = digitalRead(17);
 
-  cout << value;
+  if (value == HIGH){
+    cout << "Test";
+  }
 }
