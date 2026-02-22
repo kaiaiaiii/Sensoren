@@ -15,14 +15,14 @@ int main(void)
     vector<int> Ergebnisse = {0, 0};
 
     int value = digitalRead(17);
-    while(true){
+    //while(true){
     if (value == HIGH){
         cout << "Test";
         Ergebnisse.push_back(1);
     }
-    else{
-        Ergebnisse.push_back(0);
-    }
-    delay(10);
-    }
+    //else{
+      //  Ergebnisse.push_back(0);
+    //}
+    //delay(10);
+    //}
 }
