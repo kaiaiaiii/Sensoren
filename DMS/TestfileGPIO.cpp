@@ -8,16 +8,21 @@ int main(void)
     wiringPiSetupGpio();
 
     pinMode(17, INPUT);
+    pinMode(18, INPUT);
     pullUpDnControl(17, PUD_DOWN);
-    vector<int> Ergebnisse = {0, 0};
-   // while(true){
-        
-    int value = digitalRead(17);
+    pullUpDnControl(18, PUD_DOWN);
 
+    vector<int> Ergebnisse = {0, 0};
+
+    int value = digitalRead(17);
+    while(true){
     if (value == HIGH){
         cout << "Test";
-        Ergebnisse.push_back(value);
+        Ergebnisse.push_back(1);
     }
-    delay(1000);
-    //}
+    else{
+        Ergebnisse.push_back(0);
+    }
+    delay(10);
+    }
 }

@@ -7,8 +7,8 @@ double Value_PIN8;
 double Value_PIN10;
 const int GAIN_128 = 25;
 const int GAIN_64 = 27;
-const int doutPin = ;
-const int sckPin = ;
+const int doutPin = 8;
+const int sckPin = 10;
 
 void setup(){
     Serial.begin(57600);
