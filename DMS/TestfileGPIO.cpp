@@ -18,11 +18,12 @@ int main(void)
     //while(true){
     if (value == HIGH){
         cout << "Test";
-        Ergebnisse.push_back(1);
+        //Ergebnisse.push_back(1);
     }
-    //else{
+    else{
+        cout << "LOW";
       //  Ergebnisse.push_back(0);
-    //}
+    }
     //delay(10);
     //}
 }
