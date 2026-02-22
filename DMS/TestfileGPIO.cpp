@@ -19,7 +19,7 @@ int main(void)
         cout << "Test";
         //Ergebnisse.push_back(1);
     }
-    else{
+    if (value == LOW){
         cout << "LOW";
       //  Ergebnisse.push_back(0);
     }
