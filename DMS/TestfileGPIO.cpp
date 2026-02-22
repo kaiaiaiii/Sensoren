@@ -15,7 +15,7 @@ int main(void)
     vector<int> Ergebnisse = {0, 0};
 
     int value = digitalRead(17);
-    //while(true){
+    while(true){
     if (value == HIGH){
         cout << "Test";
         //Ergebnisse.push_back(1);
@@ -24,6 +24,6 @@ int main(void)
         cout << "LOW";
       //  Ergebnisse.push_back(0);
     }
-    //delay(10);
-    //}
+    delay(100);
+    }
 }
