@@ -13,9 +13,8 @@ int main(void)
     pullUpDnControl(18, PUD_DOWN);
 
     vector<int> Ergebnisse = {0, 0};
-
-    int value = digitalRead(17);
     while(true){
+    int value = digitalRead(17);
     if (value == HIGH){
         cout << "Test";
         //Ergebnisse.push_back(1);
