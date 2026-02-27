@@ -57,7 +57,8 @@ int main(){
     double Value_PIN8 = digitalRead(8);
     double Value_PIN10 = digitalRead(10);
     WriteDataToFile(Value_PIN10, Value_PIN8);
-      
+    cout << Value_PIN8;
+    cout << Value_PIN10;  
     }
     return 0;
 }
