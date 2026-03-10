@@ -24,6 +24,7 @@ float DataFromSpeedometer(){
     while (true) {
         int value = digitalRead(PIN);
         GPIOValue.push_back(value);
+        cout << value << endl;
         this_thread::sleep_for(chrono::milliseconds(20));
 
     }
