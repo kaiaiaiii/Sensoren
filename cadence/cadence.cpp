@@ -3,6 +3,7 @@
 #include <vector>
 #include <chrono>
 #include <thread>
+#include <fstream>
 
 using namespace std;
 
@@ -12,10 +13,19 @@ Getting a pulse signal per second I guess, transform it to my cadence
 
 #define PIN 15 
 
-float DataFromSpeedometer(){
+float WriteDataToFile(vector<int> inputvector){
+    ofstream file_out("PulseData");
+    for(int i = 0; i < inputvector.size(); i++){
+        file_out << inputvector[i] << endl;
+    }
+    return 0.0;
+}
+
+
+int main(){
 
     if (wiringPiSetup() == -1) {
-        std::cerr << "Fehler beim Initialisieren von wiringPi!" << std::endl;
+        cerr << "Fehler beim Initialisieren von wiringPi!" << endl;
         return 1;
     }
     pinMode(PIN, INPUT);
@@ -26,21 +36,8 @@ float DataFromSpeedometer(){
         GPIOValue.push_back(value);
         cout << value << endl;
         this_thread::sleep_for(chrono::milliseconds(20));
-
+        
     }
-
-    return 0.0;
-}
-
-
-float CadenceCalculation(int radius, float time, int ppm){
-
-    return 0.0;
-}
-
-
-int main(){
-
-    DataFromSpeedometer();
+    WriteDataToFile(GPIOValue);
     return 0;
 }
