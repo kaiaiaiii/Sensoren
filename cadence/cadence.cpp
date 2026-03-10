@@ -33,6 +33,11 @@ float CadenceCalculation(int radius, float time, int ppm){
 */
 
 int main(){
+
+    if (wiringPiSetup() == -1) {
+        std::cerr << "Fehler beim Initialisieren von wiringPi!" << std::endl;
+        return 1;
+    }
     
     pinMode(PIN, INPUT);
     vector<int> GPIOValue;
