@@ -27,9 +27,7 @@ unsigned long readHX711(){
     uint8_t dout;
       while(digitalRead(doutPin)){}  // wait until value is available
   for (uint8_t i=0; i<GAIN_128; i++){   //highest Gain
-    //delayMicroseconds(1); // uncomment for fast MCUs
     digitalWrite(sckPin, 1);
-    //delayMicroseconds(1); // uncomment for fast MCUs
     digitalWrite(sckPin, 0);
     if (i < (24)){
       dout = digitalRead(doutPin);
@@ -59,7 +57,8 @@ int main(){
     double Value_PIN8 = digitalRead(8);
     double Value_PIN10 = digitalRead(10);
     WriteDataToFile(Value_PIN10, Value_PIN8);
-
+    cout << Value_PIN8;
+    cout << Value_PIN10;  
     }
     return 0;
 }
