@@ -6,11 +6,6 @@
 #define PIN 15
 
 int main() {
-    if (wiringPiSetup() == -1) {
-        std::cerr << "Fehler beim Initialisieren von wiringPi!" << std::endl;
-        return 1;
-    }
-
     pinMode(PIN, INPUT);
 
     std::cout << "Lese Werte von GPIO Pin 15..." << std::endl;
